@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Tweet } from "./components/Tweet"
 import './App.css';
+import { AppRoutes } from "./Routes";
 
-
+/** Estado */
 function App() {
-  /** Estado */
+
   const [tweets, setTweets] = useState<string[]>([
     'Tweet 1',
     'Tweet 2',
@@ -17,13 +18,21 @@ function App() {
   }
 
   return (
-    
-    <div>
-      {/**Tweet = componente / text = propriedade */}
-      {tweets.map(tweet => {
-        return <Tweet text={tweet} />
-      })}
-      <button onClick={createTweet}>Adicionar tweet</button>
+    /** Tweet = componente / text = propriedade */
+    <div> {tweets.map(tweet => {return <Tweet text={tweet} />})}
+      <button 
+      onClick={createTweet}
+      style={{
+        backgroundColor: 'black',
+        border: 0,
+        padding: '6px 12px',
+        color:'#FFF',
+        cursor: 'pointer'
+      }}>
+        Adicionar tweet
+      </button>
+      {/**rotas para outras páginas */}
+      <AppRoutes />
     </div>
   );
 }
